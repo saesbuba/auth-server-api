@@ -1,0 +1,12 @@
+services:
+  auth-server:
+    build: .
+    container_name: auth-server
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/app/src
